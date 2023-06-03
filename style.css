@@ -1,0 +1,135 @@
+.github-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+
+.github-btn:hover {
+    background-color: #555;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #666;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #000;
+    line-height: 1.5;
+}
+
+#disclaimer {
+    color: #03030346;
+    font-size: 12px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #555;
+}
+
+#api-key-section {
+    margin-bottom: 20px;
+}
+
+#api-key-section label {
+    display: block;
+    margin-bottom: 10px;
+    color: #666;
+    font-size: 16px;
+}
+
+#api-key-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+#save-api-key-button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#save-api-key-button:hover {
+    background-color: #555;
+}
+
+#conversation {
+    max-height: 400px;
+    overflow-y: scroll;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+#conversation p.user {
+    text-align: right;
+    direction: ltr;
+}
+
+#conversation p.assistant {
+    text-align: left;
+}
+
+#user-input {
+    width: 80%;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+}
+
+#send-button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#send-button:hover {
+    background-color: #555;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    background-color: #08b8b83b;
+    color: #000000;
+}
