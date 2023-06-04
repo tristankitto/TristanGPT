@@ -10,16 +10,18 @@
     <div class="container">
         <a class="github-btn" href="https://github.com/tristankitto/TristanGPT" target="_blank">View on GitHub</a>
         <h1>TristanGPT</h1>
-        <div id="api-key-section">
-            <label for="api-key-input">API Key:</label>
-            <input type="text" id="api-key-input" placeholder="Enter your API key...">
-            <button id="save-api-key-button">Save</button>
+        <div class="response-div">
+            <label for="response-type">Response Type:</label>
+            <select id="response-type">
+                <option value="text">Text</option>
+                <option value="image">Image</option>
+            </select>
         </div>
         <div id="conversation"></div>
         <input type="text" id="user-input" placeholder="Type your message...">
         <button id="send-button">Send</button>
 
-        <p id="disclaimer">&#128712 This GPT clone uses GPT-3.5-Turbo from OpenAI and requires an OpenAI API Key.</p>
+        <p id="disclaimer">NOT the real ChatGPT, even though it looks the exact same.</p>
     </div>
     <script src="script.js"></script>
 </body>

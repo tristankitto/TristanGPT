@@ -1,40 +1,60 @@
 const conversationElement = document.getElementById("conversation");
 const userInput = document.getElementById("user-input");
 const sendButton = document.getElementById("send-button");
-const apiKeyInput = document.getElementById("api-key-input");
-const saveApiKeyButton = document.getElementById("save-api-key-button");
-let apiKey = "";
+const responseTypeSelect = document.getElementById("response-type");
 
 async function fetchData(message) {
-    if (!apiKey) {
-        displayMessage("Please enter an API key.", "assistant");
-        return;
+    const selectedResponseType = responseTypeSelect.value;
+    let messageText = "";
+    let messageImage = "";
+
+    if (selectedResponseType === "text") {
+        messageText = message;
+    } else {
+        messageImage = message;
     }
 
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
-        method: "POST",
+    const requestBody = {
+        apiKey: "7566e368-ffdd-413d-9d72-630efa54b6c3",
+        args: [messageImage, messageText],
+    };
+
+    const response = await fetch('https://prometheus-api.llm.llc/api/workflow/8BptUrnDrVQGZQQ6Ax9C', {
+        method: 'POST',
         headers: {
-            Authorization: `Bearer ${apiKey}`,
-            "Content-Type": "application/json"
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-            model: "gpt-3.5-turbo",
-            messages: [{
-                role: "user",
-                content: message
-            }]
-        })
+        body: JSON.stringify(requestBody),
     });
 
     const data = await response.json();
-    const reply = data.choices[0].message.content.trim();
-    displayMessage(reply, "assistant");
+    console.log(data);
+    let replyImage = data.outputs[0];
+    let replyText = data.outputs[1];
+    if (selectedResponseType === "text") {
+        displayMessage(replyText, "assistant");
+    } else {
+        displayMessage(replyImage, "assistant"); // Update this line
+    }
 }
 
 function displayMessage(message, sender) {
     const messageElement = document.createElement("p");
     messageElement.classList.add(sender);
-    messageElement.textContent = message;
+
+    if (sender === "assistant") {
+        if (message.startsWith("http")) {
+            const imageElement = document.createElement("img");
+            imageElement.src = message;
+            messageElement.appendChild(imageElement);
+        } else {
+            messageElement.textContent = message;
+        }
+    } else {
+        messageElement.textContent = message;
+    }
+
     conversationElement.appendChild(messageElement);
     conversationElement.scrollTop = conversationElement.scrollHeight;
 }
@@ -45,17 +65,5 @@ function handleUserInput() {
     displayMessage(message, "user");
     fetchData(message);
 }
-
-function saveApiKey() {
-    apiKey = apiKeyInput.value;
-    apiKeyInput.value = "";
-    if (apiKey) {
-        displayMessage("API key saved.", "assistant");
-    } else {
-        displayMessage("Please enter an API Key.", "assistant");
-    }
-}
-
-saveApiKeyButton.addEventListener("click", saveApiKey);
 
 sendButton.addEventListener("click", handleUserInput);

@@ -52,37 +52,8 @@ p {
     background-color: #555;
 }
 
-#api-key-section {
-    margin-bottom: 20px;
-}
-
-#api-key-section label {
-    display: block;
-    margin-bottom: 10px;
-    color: #666;
-    font-size: 16px;
-}
-
-#api-key-input {
-    padding: 10px;
-    border: 1px solid #ccc;
-}
-
-#save-api-key-button {
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-#save-api-key-button:hover {
-    background-color: #555;
-}
-
 #conversation {
-    max-height: 400px;
+    max-height: 600px;
     overflow-y: scroll;
     margin-bottom: 20px;
     padding: 10px;
@@ -117,6 +88,12 @@ p {
 
 #send-button:hover {
     background-color: #555;
+}
+
+.response-div {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 20px;
 }
 
 .container {
